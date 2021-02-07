@@ -2,7 +2,10 @@
     <form action="loginServlet" method="post">
        user:<input type="text" name="username"/>
        password:<input type="password" name="password"/>
-      
+      <script src="js/Bmob-2.2.5.min.js"></script>
        <input type="submit" value="Submit"/>
+	   <script>
+		   Bmob.initialize("你的Secret Key", "你的API 安全码");
+	   </script>
     </form>
   </body>
