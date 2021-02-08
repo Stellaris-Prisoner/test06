@@ -2,11 +2,23 @@
 <html>
 	<head>
 		<meta charset="utf-8">
-		<title>实验性登陆界面</title>
+		<title>实验性注册界面</title>
 		<script src="js/Bmob-2.2.5.min.js"></script>
 		 <script>
 				   Bmob.initialize("2ff18e7ed5343aa0", "10086");
 				   Bmob.debug(true);
+				   function register(){
+					   let params = {
+					       username: document.grtElementById("username").value,
+					       password: document.grtElementById("password").value,
+					   }
+					   Bmob.User.register(params).then(res => {
+					     location.href = "login.html";
+					   }).catch(err => {
+					    alert(err.error);
+					   });
+					   
+				   }
 		 </script>
 		<style type="text/css">
 			/* 清除默认样式 同时给所有元素设置样式 */
@@ -100,15 +112,13 @@
 		<div class="wrap">
 			<div class="login-wrap">
 				<div class="login-title">
-					Login
+					注册你的账号
 				</div>
 				<div class="login-form">
-					<input type="text" name="user" placeholder="username" class="login-input">
-					<input type="password" name="password" placeholder="password" class="login-input">
-					<input type="submit" name="login" value="Login" class="login-submit"/>
-				</div>
-				<div class="tip">
-					Don't have account? <a href="#">Sign up</a>
+					<input type="text" name="user" placeholder="username" id="username" class="login-input">
+					<input type="password" name="password" placeholder="password" id="password" class="login-input">
+					<input type="submit" name="login" value=" 注 册 " class="login-submit"/>
+					<button class="login-submit" onclick="register()"> zhu ce</button>
 				</div>
 			</div>
 		</div>
